@@ -15,7 +15,7 @@ class InstallPackageCommand extends Command
         if ($this->isHidden()) {
             $this->error('🤚  Skeleton is already installed.');
 
-            return 1;
+            return self::FAILURE;
         }
 
         $this->line('🏎  Installing skeleton...');
@@ -35,7 +35,7 @@ class InstallPackageCommand extends Command
 
         $this->info('🏁  Skeleton installed successfully!');
 
-        return 0;
+        return self::SUCCESS;
     }
 
     public function isHidden(): bool
