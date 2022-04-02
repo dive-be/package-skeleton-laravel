@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Tests;
 
@@ -24,8 +24,8 @@ class TestCase extends BaseTestCase
         $app->make('db')->connection()->getSchemaBuilder()->dropAllTables();
 
         /*
-        require_once __DIR__.'/../database/migrations/create_skeleton_table.php.stub';
-        (new \CreatePackageTable())->up();
+        $skeleton = require __DIR__ . '/../database/migrations/create_skeleton_table.php.stub';
+        $skeleton->up();
         */
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Dive\Skeleton\Facades;
 
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
  */
 class Skeleton extends Facade
 {
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return 'skeleton';
     }
