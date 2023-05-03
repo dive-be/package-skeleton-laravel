@@ -3,9 +3,9 @@
 namespace Tests;
 
 use Dive\Skeleton\SkeletonServiceProvider;
-use Orchestra\Testbench\TestCase as BaseTestCase;
+use Orchestra\Testbench\TestCase as TestCaseBase;
 
-class TestCase extends BaseTestCase
+abstract class TestCase extends TestCaseBase
 {
     protected function setUp(): void
     {
@@ -14,14 +14,14 @@ class TestCase extends BaseTestCase
         $this->setUpDatabase($this->app);
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [SkeletonServiceProvider::class];
     }
 
-    protected function setUpDatabase($app)
+    protected function setUpDatabase($app): void
     {
-        $app->make('db')->connection()->getSchemaBuilder()->dropAllTables();
+        $app['db']->connection()->getSchemaBuilder()->dropAllTables();
 
         /*
         $skeleton = require __DIR__ . '/../database/migrations/create_skeleton_table.php.stub';

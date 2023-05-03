@@ -2,15 +2,16 @@
 
 namespace Dive\Skeleton\Facades;
 
+use Dive\Skeleton\SkeletonServiceProvider;
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Dive\Skeleton\Skeleton
  */
-class Skeleton extends Facade
+final class Skeleton extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return 'skeleton';
+        return SkeletonServiceProvider::NAME;
     }
 }
